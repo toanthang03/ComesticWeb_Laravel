@@ -7,6 +7,8 @@ use App\Http\Controllers\Client\UserController;
 use App\Http\Middleware\AuthMiddleware;
 use App\Http\Controllers\Client\CartController;
 use App\Http\Middleware\EnsureCartByAuthenticationUSer;
+use App\Http\Controllers\Client\OrderController;
+use App\Http\Controllers\Client\CheckoutController;
 
 Route::prefix('/')->group(function () {
     //View Trang chủ
@@ -33,4 +35,15 @@ Route::middleware(EnsureCartByAuthenticationUSer::class)->group(function () {
         Route::post('/remove', [CartController::class, 'remove'])->name('cart.remove');
         Route::post('/update-quantity', [CartController::class, 'updateQuantity'])->name('cart.updateQuantity');
     });
-});    
+
+    Route::prefix('/checkout')->group(function () {
+        Route::get('', [CheckoutController::class, 'index'])->name('checkout');
+        Route::post('/payment', [CheckoutController::class, 'payment'])->name('payment');
+    });
+
+    Route::prefix('/orders')->group(function () {
+        Route::get('', [OrderController::class, 'index'])->name('orders');
+        Route::get('/{id}', [OrderController::class, 'show']);
+    });
+});
+

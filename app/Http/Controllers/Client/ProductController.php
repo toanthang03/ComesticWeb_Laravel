@@ -18,10 +18,9 @@ class ProductController extends Controller
         if ($request->has('category_id')) {
             $query->where('category_id', $request->input('category_id'));
         }
+        
         $products = $query->get();
-
         return view('Client.Product.index', compact('products'));
-
     }
 
     //Phương thức xem chi tiết sản phẩm theo id

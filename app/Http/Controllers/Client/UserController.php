@@ -47,12 +47,14 @@ class UserController extends Controller
                 'email' => 'required|email|unique:users,email',
                 'password' => 'required|min:6|confirmed',
                 'phone' => 'required|numeric|digits:10',
+                'address' => 'required',
             ]);
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'phone' => $request->phone,
+                'address' => $request->address,
                 'role' => 'user'
             ]);
             return redirect()->route('login');

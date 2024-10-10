@@ -51,7 +51,7 @@
             <a href="{{ route('product') }}">Back</a>
             <div class="">
                 <h5 class="card-title">Total: {{ number_format($cart->total, 0, '.', ',') }} VND</h5>
-                <a href="#" class="btn btn-outline-danger mt-3">Checkout</a>
+                <a href="{{route('checkout')}}" class="btn btn-outline-danger mt-3">Checkout</a>
             </div>
         </div>
     </div>

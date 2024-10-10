@@ -32,6 +32,12 @@
                                             @if ($errors->has('phone'))
                                             <span class="text-danger">{{ $errors->first('phone') }}</span>
                                             @endif
+                                            <label class="col-md-3" for="frm_email">Address</label>
+                                            <input type="text" name="address" placeholder="Address" class="form-control rounded-0"
+                                                value="{{ old('address') }}">
+                                            @if ($errors->has('address'))
+                                            <span class="text-danger">{{ $errors->first('address') }}</span>
+                                            @endif
 
                                             <span>Mật Khẩu</span>
                                             <div class="col-12 py-3">

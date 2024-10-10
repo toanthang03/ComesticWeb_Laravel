@@ -137,7 +137,7 @@
                                                     @endforeach
                                                 </ul>
                                             </li>
-                                            <li><a href="#">Tra cứu đơn hàng</a>
+                                            <li><a href="{{ route('payment') }}">Tra cứu đơn hàng</a>
                                             <li><a href="">Liên hệ</a></li>
                                         </ul>
                                     </div>

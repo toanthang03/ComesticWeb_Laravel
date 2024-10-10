@@ -15,11 +15,11 @@ class OrderController extends Controller
         if (!$user_orders) {
             return redirect()->route('home');
         }
-        return view('client.orders.index', compact('user_orders'));
+        return view('Client.Order.index', compact('user_orders'));
     }
     public function show($id)
     {
         $order = Orders::find($id);
-        return view('client.orders.show', compact('order'));
+        return view('Client.Order.show', compact('order'));
     }
 }

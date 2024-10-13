@@ -74,6 +74,13 @@
                         </div>
                         <div class="col-md-6 text-md-end text-center mt-sm-15">
                             <div class="theme-setting">
+                                <a href="" class="dropdown-btn" role="button">@lang('message.languages')<i class="ion-ios-arrow-down"></i></a>
+                                <ul class="dropdown-content">
+                                    <li><a href="locale/vi">@lang('message.vietnamese')</a></li>
+                                    <li><a href="locale/en">@lang('message.english')</a></li>
+                                </ul>
+                            </div>
+                            <div class="theme-setting">
                                 @if(Auth::check())
                                 <a class="dropdown-btn" href="#" role="button">
                                     {{ Auth::User()->name }}
@@ -81,8 +88,8 @@
                                 </a>
                                 <ul class="dropdown-content">
                                     <ul>
-                                        <li><a href="">Thông tin</a></li>
-                                        <li><a href="{{route('logout')}}">Đăng xuất</a></li>
+                                        <li><a href="">@lang('message.information')</a></li>
+                                        <li><a href="{{route('logout')}}">@lang('message.logout')</a></li>
                                     </ul>
                                 </ul>
                                 @else
@@ -92,10 +99,10 @@
                                 </a>
                                 <ul class="dropdown-content">
                                     <li>
-                                        <a href="{{route('login')}}">Đăng nhập</a>
+                                        <a href="{{route('login')}}">@lang('message.login')</a>
                                     </li>
                                     <li>
-                                        <a href="{{route('register')}}">Đăng ký</a>
+                                        <a href="{{route('register')}}">@lang('message.register')</a>
                                     </li>
                                 </ul>
                                 @endif
@@ -121,10 +128,10 @@
                                     <div class="header-navigation-area hidden-md-down">
                                         <ul class="main-menu nav position-relative">
                                             <li>
-                                                <a href="{{route('home')}}">Trang chủ</a>
+                                                <a href="{{route('home')}}">@lang('message.home')</a>
                                             </li>
                                             <li class="has-submenu full-width">
-                                                <a href="{{route('product')}}">Danh Mục</a>
+                                                <a href="{{route('product')}}">@lang('message.product')</a>
                                                 <ul class="submenu-nav">
                                                     @foreach($categories as $category)
                                                     <li class="mega-menu-item">
@@ -133,8 +140,7 @@
                                                     @endforeach
                                                 </ul>
                                             </li>
-                                            <li><a href="{{route('orders')}}">Tra cứu đơn hàng</a>
-                                            <li><a href="">Liên hệ</a></li>
+                                            <li><a href="{{route('orders')}}">@lang('message.orders')</a>
                                         </ul>
                                     </div>
                                 </div>

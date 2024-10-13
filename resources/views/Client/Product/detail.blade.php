@@ -73,7 +73,7 @@
                         <input type="number" name="quantity" value="1" min="1" hidden />
                       </div>
                     </div>
-                    <button class="btn-product-add" type="submit">Add to cart</button>
+                    <button class="btn-product-add" type="submit">@lang('message.add-to-cart')</button>
                   </form>
                 </div>
                 <div class="social-sharing">
@@ -95,10 +95,10 @@
         <div class="product-review-tabs-content">
           <ul class="nav product-tab-nav" id="ReviewTab" role="tablist">
             <li role="presentation">
-              <a class="active" id="description-tab" data-bs-toggle="pill" href="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>
+              <a class="active" id="description-tab" data-bs-toggle="pill" href="#description" role="tab" aria-controls="description" aria-selected="true">@lang('message.description')</a>
             </li>
             <li role="presentation">
-              <a id="reviews-tab" data-bs-toggle="pill" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reviews</a>
+              <a id="reviews-tab" data-bs-toggle="pill" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">@lang('message.review')</a>
             </li>
           </ul>
           <div class="tab-content product-tab-content" id="ReviewTabContent">
@@ -184,25 +184,34 @@
     <div class="row">
       <div class="col-12">
         <div class="product-slider owl-carousel owl-theme">
-          @foreach($product as $pro)
+          @foreach($product as $item)
           <div class="item">
             <!--== Start Shop Item ==-->
             <div class="product-item">
               <div class="inner-content">
                 <div class="product-thumb">
-                  <a href="/product/{{$pro->_id}}">
-                    <img src="{{ asset('img/' .$pro->image) }}" alt="Image-HasTech">
+                  <a href="/product/{{$item->_id}}">
+                    <img src="{{ asset('img/' .$item->image) }}" alt="Image-HasTech">
                   </a>
                 </div>
                 <div class="product-desc">
                   <div class="product-info">
-                    <h4 class="title"><a href="/product/{{$pro->_id}}">{{ $pro->name }}</a></h4>
+                    <h4 class="title"><a href="/product/{{$item->_id}}">{{ $item->name }}</a></h4>
                     <div class="prices">
-                      <span class="price text-black">{{ number_format($pro->price, 0, ',', '.') }} đ</span>
+                      <span class="price text-black">{{ number_format($item->price, 0, ',', '.') }} đ</span>
                     </div>
                   </div>
                   <div class="product-footer">
-                    <a class="btn-product-add" href="cart.html">Add to cart</a>
+                    <form action="{{route('cart.add')}}" method="post">
+                      @csrf
+                      <div class="product-quick-qty">
+                        <div class="pro-qty">
+                          <input type="text" hidden name="product_id" value="{{ $item->_id }}">
+                          <input type="number" name="quantity" value="1" min="1" hidden />
+                        </div>
+                      </div>
+                      <button class="btn-product-add" type="submit">Add to cart</button>
+                    </form>
                   </div>
                 </div>
               </div>

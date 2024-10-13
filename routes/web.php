@@ -9,6 +9,7 @@ use App\Http\Controllers\Client\CartController;
 use App\Http\Middleware\EnsureCartByAuthenticationUSer;
 use App\Http\Controllers\Client\OrderController;
 use App\Http\Controllers\Client\CheckoutController;
+use App\Http\Controllers\Client\LocaleController;
 
 Route::prefix('/')->group(function () {
     //View Trang chủ
@@ -46,4 +47,6 @@ Route::middleware(EnsureCartByAuthenticationUSer::class)->group(function () {
         Route::get('/{id}', [OrderController::class, 'show']);
     });
 });
+
+Route::get('locale/{lang}',[LocaleController::class, 'setLocale'])->name('locale');
 

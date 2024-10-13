@@ -17,12 +17,8 @@ class ProductController extends Controller
         if ($request->has('category_id')) {
             $query->where('category_id', $request->input('category_id'));
         }
-        //Sắp xếp theo giá
-        // if ($request->has('sort_by') && $request->has('sort_order')) {
-        //     $query->orderBy($request->sort_by, $request->sort_order);
-        // }
-        $products = $query->get();
-
+        //paginate
+        $products = $query->paginate(6);
         return view('Admin.Product.index', compact('products'));
     }
 

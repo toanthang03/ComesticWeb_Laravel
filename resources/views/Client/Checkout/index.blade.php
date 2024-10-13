@@ -43,6 +43,8 @@
                 @csrf
                 <input type="hidden" name="name" value="{{ $user->name }}">
                 <input type="hidden" name="total" value="{{ $cart->total }}">
+                <input type="hidden" name="address" value="{{ $user->address }}">
+                <input type="hidden" name="phone" value="{{ $user->phone }}">
                 <button type="submit" class="btn btn-outline-danger mt-3" name="cod">Cash on
                     Delivery</button>
                 <button type="submit" class="btn btn-outline-danger mt-3" name="payUrl">Pay by

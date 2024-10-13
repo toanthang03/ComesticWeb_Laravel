@@ -236,18 +236,19 @@
                     <div class="row">
                         <div class="col-8 col-sm-8 col-md-6">
                             <div class="row">
-                                <div class="col-sm-3">
-                                    <div class="sort-by-text">
-                                        Sort By:
-                                    </div>
-                                </div>
                                 <div class="col-sm-9">
                                     <div class="sort-by-form">
-                                        <select class="form-select" aria-label="Relevance">
-                                            <option selected>Relevance</option>
-                                            <option value="3">Price, low to high</option>
-                                            <option value="4">Price, high to low</option>
-                                        </select>
+                                        <button class="btn btn-outline" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Sắp xếp theo giá
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item"
+                                                    href="{{ route('product', array_merge(request()->query(), ['sort_by' => 'price', 'sort_order' => 'asc'])) }}">Low
+                                                    to High</a></li>
+                                            <li><a class="dropdown-item"
+                                                    href="{{ route('product', array_merge(request()->query(), ['sort_by' => 'price', 'sort_order' => 'desc'])) }}">High
+                                                    to Low</a></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -258,7 +259,7 @@
                     <div class="tab-content product-tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="grid" role="tabpanel" aria-labelledby="grid-tab">
                             <div class="row">
-                            @foreach($products as $product)
+                                @foreach($products as $product)
                                 <div class="col-sm-6 col-md-4">
                                     <!--== Start Shop Item ==-->
                                     <div class="product-item">
@@ -287,7 +288,16 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-footer">
-                                                    <a class="btn-product-add" href="">Add to cart</a>
+                                                    <form action="{{route('cart.add')}}" method="post">
+                                                        @csrf
+                                                        <div class="product-quick-qty">
+                                                            <div class="pro-qty">
+                                                                <input type="text" hidden name="product_id" value="{{ $product->_id }}">
+                                                                <input type="number" name="quantity" value="1" min="1" hidden />
+                                                            </div>
+                                                        </div>
+                                                        <button class="btn-product-add" type="submit">Add to cart</button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -301,13 +311,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="pagination-content-wrap">
-                                <nav class="pagination-nav">
-                                    <ul class="pagination justify-content-center">
-                                        <li><a class="active" href="#/">1</a></li>
-                                        <li><a href="#/">2</a></li>
-                                        <li><a href="#/"><i class="icon-arrow-right"></i></a></li>
-                                    </ul>
-                                </nav>
+                                {{ $products->appends(request()->query())->links('pagination::bootstrap-5') }}
                             </div>
                         </div>
                     </div>

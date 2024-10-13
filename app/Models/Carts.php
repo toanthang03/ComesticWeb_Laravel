@@ -64,4 +64,20 @@ class Carts extends Model
             $this->delete();
         }
     }
+
+    public function updateQuantity($product_id, $quantity)
+    {
+        $products = $this->products ?: [];
+        foreach ($products as $key => $item) {
+            if ($item['product_id'] == $product_id) {
+                $products[$key]['quantity'] = $quantity;
+                break;
+            }
+        }
+        $this->products = $products;
+        $this->total = array_reduce($products, function ($total, $item) {
+            return $total + ($item['quantity'] * $item['price']);
+        }, 0);
+        $this->save();
+    }
 }

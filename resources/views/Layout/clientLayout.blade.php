@@ -21,11 +21,7 @@
 
     <!--== Bootstrap CSS ==-->
     <link href="{{asset ('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
-    <link href="{{asset ('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{asset ('assets/css/pagination.css') }}" rel="stylesheet" type="text/css" />
-
-    <link href="{{asset ('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
-
 
     <!--== Ionicon CSS ==-->
     <link href="{{asset ('assets/css/ionicons.min.css') }}" rel="stylesheet" />
@@ -137,7 +133,7 @@
                                                     @endforeach
                                                 </ul>
                                             </li>
-                                            <li><a href="{{ route('payment') }}">Tra cứu đơn hàng</a>
+                                            <li><a href="{{route('orders')}}">Tra cứu đơn hàng</a>
                                             <li><a href="">Liên hệ</a></li>
                                         </ul>
                                     </div>
@@ -149,9 +145,9 @@
                                                 <span class="icon icon-search icon-magnifier"></span>
                                             </button>
                                             <div class="btn-search-content">
-                                                <form action="#" method="post">
+                                                <form action="{{route('product')}}" method="get" role="search">
                                                     <div class="form-input-item">
-                                                        <input type="text" placeholder="Enter your search key ...">
+                                                        <input type="text" name="search" type="search" placeholder="Enter your search key ...">
                                                         <button type="submit" class="btn-src">
                                                             <i class="icon-magnifier"></i>
                                                         </button>

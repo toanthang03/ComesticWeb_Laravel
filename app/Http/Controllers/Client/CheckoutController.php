@@ -53,8 +53,8 @@ class CheckoutController extends Controller
         //new order nè
         $newOrder = new \stdClass();
         $newOrder->name = $request->name;
-        $newOrder->phone = '1234567890';
-        $newOrder->address = '123 Sample Street';
+        $newOrder->phone = $request->phone;
+        $newOrder->address = $request->address;
         $newOrder->products = $cart->products;
         $newOrder->date = now()->format('d-m-Y H:i');
         $newOrder->subtotal = $cart->total;

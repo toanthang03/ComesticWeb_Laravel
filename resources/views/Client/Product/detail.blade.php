@@ -104,8 +104,7 @@
           <div class="tab-content product-tab-content" id="ReviewTabContent">
             <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
               <div class="product-description">
-                <p class="preformatted">{{$products->description}}</p>
-                <img src="{{ asset('img/' .$products->image) }}" alt="Image-HasTech" width="50%"></br>
+                <p class="preformatted">{!!$products->description!!}</p>
                 <p class="preformatted"><b>Thương hiệu:</b> {{$products->brand}}</p>
                 <p class="preformatted"><b>Xuất xứ:</b> {{$products->origin}}</p>
               </div>

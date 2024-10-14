@@ -2,6 +2,7 @@
 @section('title', 'Dashboard')
 @section('content')
 
-<h3>Welcome Back: Toan Thang </h3>
-
+@if(Auth::check())
+<h3>Welcome Back: {{ Auth::User()->name }} </h3>
+@endif
 @endsection

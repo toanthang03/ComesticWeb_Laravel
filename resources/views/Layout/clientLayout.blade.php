@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
 <!-- Mirrored from htmldemo.net/argima/argima/index-two.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 19 Jul 2024 08:32:29 GMT -->
 
 <head>

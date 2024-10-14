@@ -288,16 +288,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-footer">
-                                                    <form action="{{route('cart.add')}}" method="post">
-                                                        @csrf
-                                                        <div class="product-quick-qty">
-                                                            <div class="pro-qty">
-                                                                <input type="text" hidden name="product_id" value="{{ $product->_id }}">
-                                                                <input type="number" name="quantity" value="1" min="1" hidden />
-                                                            </div>
-                                                        </div>
-                                                        <button class="btn-product-add" type="submit">Add to cart</button>
-                                                    </form>
+                                                    c
                                                 </div>
                                             </div>
                                         </div>

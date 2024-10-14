@@ -2,6 +2,7 @@
 @section('title', 'Thiết bị vệ sinh cao cấp')
 @section('content')
 
+<a href="{{route('product.show')}}">Quay lại</a>
 <form action="{{ route('admin.products.store') }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="row-my-2">
